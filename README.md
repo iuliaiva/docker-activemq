@@ -37,6 +37,7 @@ As these URI env variable are part of `sed` command it needs to escape all speci
 - **SPRINGFRAMEWORK_LOGGER_LEVEL** - changes `log4j.logger.org.springframework` (default value: `WARN`)
 - **CAMEL_LOGGER_LEVEL** - changes `log4j.logger.org.apache.camel` (default value: `INFO`)
 - **CONSOLE_APPENDER_THRESHOLD_LEVEL** - changes `log4j.appender.console.threshold` (default value: `INFO`)
+- **CONSOLE_LOG_PATTERN** - changes `log4j.appender.logfile.layout.ConversionPattern` (default value: `%5p | %m%n`)
 
 *Jmx:*
 - **USE_JMX** - enable jmx (default value: `false`)

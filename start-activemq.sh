@@ -141,6 +141,11 @@ sed -i -e "s/log4j.logger.org.apache.camel=INFO/log4j.logger.org.apache.camel=${
 # Setting up console appender threshold
 sed -i -e "s/log4j.appender.console.threshold=INFO/log4j.appender.console.threshold=${CONSOLE_APPENDER_THRESHOLD_LEVEL}/g" /opt/app/apache-activemq/conf/log4j.properties
 
+# Setting up console log format
+if [[ -v CONSOLE_LOG_PATTERN ]]; then
+  sed -i -e "s/console.layout.ConversionPattern=%5p | %m%n/console.layout.ConversionPattern=${CONSOLE_LOG_PATTERN}/g" /opt/app/apache-activemq/conf/log4j.properties
+fi
+
 # Enabling Network Of Brokers
 if [[ (-v NETWORK_OF_BROKERS_CONNECTORS_URI ) || (-v NETWORK_OF_BROKERS_CONNECTORS_SEC_URI ) ]]; then
   sed -i 's/.*<\/broker>/<networkConnectors>\n<\/networkConnectors>\n\n&/' /opt/app/apache-activemq/conf/activemq.xml
